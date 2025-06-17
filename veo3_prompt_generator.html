@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veo 3 Prompt Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f0f0; }
+    h1 { text-align: center; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, textarea, button { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+    button { background-color: #4CAF50; color: white; font-weight: bold; }
+    #output { margin-top: 20px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Veo 3 Prompt Generator</h1>
+    <label>1. Subjek</label>
+    <input type="text" id="subject" placeholder="Contoh: Seekor kucing lucu">
+
+    <label>2. Aksi</label>
+    <input type="text" id="action" placeholder="Contoh: berlari di padang rumput">
+
+    <label>3. Ekspresi</label>
+    <input type="text" id="expression" placeholder="Contoh: gembira, sedih, tenang">
+
+    <label>4. Tempat</label>
+    <input type="text" id="place" placeholder="Contoh: di hutan lebat">
+
+    <label>5. Waktu</label>
+    <select id="time">
+      <option value="pagi">Pagi</option>
+      <option value="siang">Siang</option>
+      <option value="sore">Sore</option>
+      <option value="malam">Malam</option>
+    </select>
+
+    <label>6. Gerakan Kamera</label>
+    <select id="camera">
+      <option value="kamera mengikuti">Kamera mengikuti</option>
+      <option value="kamera mengitari">Kamera mengitari</option>
+      <option value="zoom perlahan">Zoom perlahan</option>
+    </select>
+
+    <label>7. Pencahayaan</label>
+    <select id="lighting">
+      <option value="terang alami">Terang alami</option>
+      <option value="remang-remang">Remang-remang</option>
+      <option value="kontras tinggi">Kontras tinggi</option>
+    </select>
+
+    <label>8. Gaya Video</label>
+    <select id="style">
+      <option value="sinematik">Sinematik</option>
+      <option value="kartun">Kartun</option>
+      <option value="realistis">Realistis</option>
+    </select>
+
+    <label>9. Suasana Video</label>
+    <select id="vibe">
+      <option value="melankolis">Melankolis</option>
+      <option value="hangat">Hangat</option>
+      <option value="misterius">Misterius</option>
+    </select>
+
+    <label>10. Suara atau Musik</label>
+    <input type="text" id="sound" placeholder="Contoh: Melodi piano, suara hujan">
+
+    <label>11. Kalimat yang Diucapkan</label>
+    <input type="text" id="dialogue" placeholder="Contoh: 'Selamat datang di dunia yang indah ini!'" >
+
+    <label>12. Detail Tambahan</label>
+    <textarea id="extra" placeholder="Contoh: kualitas sinematik 8K, efek partikel, lensa lebar"></textarea>
+
+    <button onclick="generatePrompt()">Buat Prompt</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function generatePrompt() {
+      const s = id => document.getElementById(id).value;
+      const result = `Sebuah video yang menampilkan ${s("subject")}, ${s("action")}, dengan ekspresi ${s("expression")} ${s("place")}, pada waktu ${s("time")}. ` +
+        `Gerakan kamera: ${s("camera")}, pencahayaan: ${s("lighting")}, gaya: ${s("style")}, suasana: ${s("vibe")}. ` +
+        `Suara: ${s("sound")}. Kalimat: ${s("dialogue")}. Detail tambahan: ${s("extra")}.`;
+      document.getElementById("output").textContent = result;
+    }
+  </script>
+</body>
+</html>
