@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veo3 Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #1e88e5;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #1e88e5;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1565c0;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e3f2fd;
+      border-left: 5px solid #1e88e5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Veo3 Prompt Generator</h1>
+  <p>Buat prompt yang terstruktur dan detail untuk Veo 3.</p>
+
+  <label>1. Subjek</label>
+  <input type="text" id="subjek" placeholder="Contoh: Seekor kucing lucu" />
+
+  <label>2. Aksi</label>
+  <input type="text" id="aksi" placeholder="Contoh: berlari di padang rumput" />
+
+  <label>3. Ekspresi</label>
+  <input type="text" id="ekspresi" placeholder="Contoh: gembira, sedih, tenang" />
+
+  <label>4. Tempat</label>
+  <input type="text" id="tempat" placeholder="Contoh: di hutan lebat" />
+
+  <label>5. Waktu</label>
+  <select id="waktu">
+    <option>Pagi</option>
+    <option>Siang</option>
+    <option>Sore</option>
+    <option>Malam</option>
+    <option>Senja</option>
+  </select>
+
+  <label>6. Gerakan Kamera</label>
+  <select id="kamera">
+    <option>Pan</option>
+    <option>Tilt</option>
+    <option>Zoom in</option>
+    <option>Zoom out</option>
+    <option>Tracking</option>
+    <option>Dolly</option>
+    <option>Static</option>
+  </select>
+
+  <label>7. Pencahayaan</label>
+  <select id="cahaya">
+    <option>Natural soft light</option>
+    <option>Golden hour</option>
+    <option>Backlight siluet</option>
+    <option>Studio light</option>
+    <option>Neon lighting</option>
+    <option>Cinematic contrast</option>
+  </select>
+
+  <label>8. Gaya Video</label>
+  <select id="gaya">
+    <option>Sinematik</option>
+    <option>Dokumenter</option>
+    <option>Surealis</option>
+    <option>Fantasi</option>
+    <option>Retro VHS</option>
+  </select>
+
+  <label>9. Suasana Video</label>
+  <select id="suasana">
+    <option>Hangat & emosional</option>
+    <option>Melankolis</option>
+    <option>Tenang & damai</option>
+    <option>Misterius</option>
+    <option>Penuh energi</option>
+  </select>
+
+  <label>10. Musik / Suara</label>
+  <input type="text" id="musik" placeholder="Contoh: Melodi piano, suara hujan" />
+
+  <label>11. Kalimat yang Diucapkan</label>
+  <input type="text" id="dialog" placeholder="Contoh: Selamat datang di dunia ini!" />
+
+  <label>12. Detail Tambahan</label>
+  <textarea id="detail" placeholder="Contoh: kualitas sinematik 8K, efek partikel, lensa lebar"></textarea>
+
+  <button onclick="generatePrompt()">Buat Prompt</button>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    function generatePrompt() {
+      const s = document.getElementById("subjek").value;
+      const a = document.getElementById("aksi").value;
+      const e = document.getElementById("ekspresi").value;
+      const t = document.getElementById("tempat").value;
+      const w = document.getElementById("waktu").value;
+      const k = document.getElementById("kamera").value;
+      const c = document.getElementById("cahaya").value;
+      const g = document.getElementById("gaya").value;
+      const su = document.getElementById("suasana").value;
+      const m = document.getElementById("musik").value;
+      const d = document.getElementById("dialog").value;
+      const dt = document.getElementById("detail").value;
+
+      const prompt = `${s}, ${a}, ekspresi ${e}, ${t}, waktu ${w}, gerakan kamera ${k}, pencahayaan ${c}, gaya video ${g}, suasana ${su}, musik ${m}, dialog "${d}", detail: ${dt}`;
+
+      document.getElementById("output").innerText = prompt;
+    }
+  </script>
+
+  <p style="margin-top: 40px; font-size: 0.9em; color: #888;">
+    Dibuat oleh: <strong>Pi & Valiréa Studio</strong> (AetherNest Project | 2025)
+  </p>
+</body>
+</html>
